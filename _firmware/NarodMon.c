@@ -16,16 +16,18 @@
 #include "DS18B20.h"
 #include "DHT11.h"
 
-uint8_t DHT_temp = 20;
-uint8_t DHT_hum = 50;
-int32_t BMP_temp = 200;
-int32_t BMP_press = 7600;
-int16_t DS_temp = 20;
+int8_t DHT_temp = 0;
+uint8_t DHT_hum = 10;
+int32_t BMP_temp = 0;
+int32_t BMP_press = 5800;
+int16_t DS_temp = 0;
 uint8_t UART_counter = 0;
 uint8_t UART_data[32];
-char buf[94];
+char buf[108];
 
-uint16_t temp;
+uint32_t temp;
+
+uint16_t uptime = 0;
 
 void static inline LED_in() {
 	OCR1B = 0x3FF;
@@ -46,10 +48,6 @@ void static inline LED_fadeout() {
 	}
 }
 
-ISR(USART_RXC_vect) {
-	LED_fadeout();
-}
-
 int main(void)
 {
 	_delay_ms(5000);
@@ -67,13 +65,9 @@ int main(void)
 	UCSRA |= (1<<U2X);
 	UART_send_string("AT+RST\r\n");
 	_delay_ms(5000);
-	UART_send_string("AT+CWJAP=\"DubosSouth\",\"dubos2018\"\r\n");
-	_delay_ms(5000);
-	UART_send_string("AT+CIPMUX=0\r\n");
-	_delay_ms(100);
 	
-	//strcpy(buf, "#cc:50:e3:2b:55:fc\n#DS18B20#000.00\n#DHT11_T#000\n#DHT11_H#00\n#BMP180_T#000.0\n#BMP180_P#000.0\n##");
-	strcpy(buf, "#cc:50:e3:2b:55:fc\n#DS18B20#000.00\n#DHT11_T#000\n#DHT11_H#00\n##");
+	strcpy(buf, "#cc:50:e3:2b:55:fc\n#uptime#0000\n#DS18B20#000.00\n#DHT11_T#000\n#DHT11_H#00\n#BMP180_T#000.0\n#BMP180_P#000.0\n##");
+	//strcpy(buf, "#cc:50:e3:2b:55:fc\n#DS18B20#000.00\n#DHT11_T#000\n#DHT11_H#00\n##");
 	
 	BMP180_init();
 	
@@ -97,8 +91,20 @@ int main(void)
 		DS_temp = DS18B20_temperature();
 		
 		DHT11_getData(&DHT_temp, &DHT_hum);
-		
+				
 		BMP180_calculation(&BMP_temp, &BMP_press);
+		
+		BMP_press *= 100;
+		BMP_press /= 1333;
+		
+		temp = uptime;
+		buf[30] = temp % 10 + 0x30;
+		temp /= 10;
+		buf[29] = temp % 10 + 0x30;
+		temp /= 10;
+		buf[28] = temp % 10 + 0x30;
+		temp /= 10;
+		buf[27] = temp % 10 + 0x30;
 		
 		if(DS_temp >= 0) {
 			temp = DS_temp;
@@ -106,18 +112,18 @@ int main(void)
 		else {
 			temp = (-1) * DS_temp;
 		}
-		buf[33] = temp % 10 + 0x30;
+		buf[46] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[32] = temp % 10 + 0x30;
+		buf[45] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[30] = temp % 10 + 0x30;
+		buf[43] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[29] = temp % 10 + 0x30;
+		buf[42] = temp % 10 + 0x30;
 		if(DS_temp < 0) {
-			buf[28] = '-';
+			buf[41] = '-';
 		}
 		else {
-			buf[28] = '0';
+			buf[41] = '0';
 		}
 		
 		if(DHT_temp >= 0) {
@@ -126,20 +132,20 @@ int main(void)
 		else {
 			temp = (-1) * DHT_temp;
 		}
-		buf[46] = temp % 10 + 0x30;
+		buf[59] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[45] = temp % 10 + 0x30;
+		buf[58] = temp % 10 + 0x30;
 		if(DS_temp < 0) {
-			buf[44] = '-';
+			buf[57] = '-';
 		}
 		else {
-			buf[44] = '0';
+			buf[57] = '0';
 		}
 		
 		temp = DHT_hum;
-		buf[58] = temp % 10 + 0x30;
+		buf[71] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[57] = temp % 10 + 0x30;
+		buf[70] = temp % 10 + 0x30;
 		
 		if(BMP_temp >= 0) {
 			temp = BMP_temp;
@@ -147,33 +153,38 @@ int main(void)
 		else {
 			temp = (-1) * BMP_temp;
 		}
-		buf[74] = temp % 10 + 0x30;
+		buf[87] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[72] = temp % 10 + 0x30;
+		buf[85] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[71] = temp % 10 + 0x30;
+		buf[84] = temp % 10 + 0x30;
 		if(DS_temp < 0) {
-			buf[70] = '-';
+			buf[83] = '-';
 		}
 		else {
-			buf[70] = '0';
+			buf[83] = '0';
 		}
 		
 		temp = BMP_press;
-		buf[90] = temp % 10 + 0x30;
+		buf[103] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[88] = temp % 10 + 0x30;
+		buf[101] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[87] = temp % 10 + 0x30;
+		buf[100] = temp % 10 + 0x30;
 		temp /= 10;
-		buf[86] = temp % 10 + 0x30;
+		buf[99] = temp % 10 + 0x30;
 		
+		UART_send_string("AT+CWJAP=\"DubosSouth\",\"dubos2018\"\r\n");
+		_delay_ms(5000);
+		UART_send_string("AT+CIPMUX=0\r\n");
+		_delay_ms(100);
 	    UART_send_string("AT+CIPSTART=\"TCP\",\"narodmon.ru\",8283\r\n");
 	    _delay_ms(100);
-	    //UART_send_string("AT+CIPSEND=94\r\n");
-	    UART_send_string("AT+CIPSEND=62\r\n");
+	    UART_send_string("AT+CIPSEND=107\r\n");
+	    //UART_send_string("AT+CIPSEND=62\r\n");
 	    _delay_ms(100);
 	    UART_send_string(buf);
+		uptime++;
 		
 		LED_fadeout();
 		

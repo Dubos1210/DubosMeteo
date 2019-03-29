@@ -33,7 +33,7 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(mulsf3x.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(mulsf3.o) (__mulsf3x)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_udivmodsi4.o)
-                              UART.o (__udivmodsi4)
+                              NarodMon.o (__udivmodsi4)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_divmodsi4.o)
                               BMP180.o (__divmodsi4)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_negsi2.o)
@@ -44,8 +44,6 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
                               NarodMon.o (__do_copy_data)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_clear_bss.o)
                               BMP180.o (__do_clear_bss)
-c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
-                              NarodMon.o (__umulhisi3)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_muluhisi3.o)
                               DS18B20.o (__muluhisi3)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_divdi3.o)
@@ -60,6 +58,8 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_divdi3.o) (__prologue_saves__)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_epilogue.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_divdi3.o) (__epilogue_restores__)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_muluhisi3.o) (__umulhisi3)
 
 Allocating common symbols
 Common symbol       size              file
@@ -75,7 +75,7 @@ UART_data           0x20              NarodMon.o
 BMP180_AC2          0x2               BMP180.o
 UART_buff           0x10              BMP180.o
 BMP180_AC5          0x2               BMP180.o
-temp                0x2               NarodMon.o
+temp                0x4               NarodMon.o
 BMP180_UT           0x4               BMP180.o
 BMP180_AC6          0x2               BMP180.o
 I2C_counter2        0x1               I2C.o
@@ -92,7 +92,7 @@ BMP180_AC4          0x2               BMP180.o
 BMP180_AC3          0x2               BMP180.o
 x1                  0x4               BMP180.o
 BMP180_MC           0x2               BMP180.o
-buf                 0x5e              NarodMon.o
+buf                 0x6c              NarodMon.o
 BMP180_AC1          0x2               BMP180.o
 BMP180_UP           0x4               BMP180.o
 BMP180_B2           0x2               BMP180.o
@@ -264,20 +264,6 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_clear_bss.o)
- .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
- .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
- .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
- .text.libgcc.div
-                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
- .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
- .text.libgcc.prologue
-                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
- .text.libgcc.builtins
-                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
- .text.libgcc.fmul
-                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
- .text.libgcc.fixed
-                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_muluhisi3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_muluhisi3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_muluhisi3.o)
@@ -388,6 +374,20 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_epilogue.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_epilogue.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
 
 Memory Configuration
 
@@ -509,7 +509,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1bb2
+.text           0x00000000     0x1938
  *(.vectors)
  .vectors       0x00000000       0x26 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o
                 0x00000000                __vector_default
@@ -571,6 +571,7 @@ END GROUP
                 0x0000005c                __bad_interrupt
                 0x0000005c                __vector_6
                 0x0000005c                __vector_3
+                0x0000005c                __vector_11
                 0x0000005c                __vector_13
                 0x0000005c                __vector_17
                 0x0000005c                __vector_7
@@ -587,126 +588,123 @@ END GROUP
                 0x0000005e                . = ALIGN (0x2)
  *(.text.*)
  .text.BMP180_init
-                0x0000005e      0x3da BMP180.o
+                0x0000005e      0x3e8 BMP180.o
                 0x0000005e                BMP180_init
  .text.BMP180_calculation
-                0x00000438      0x2fc BMP180.o
-                0x00000438                BMP180_calculation
+                0x00000446      0x2fc BMP180.o
+                0x00000446                BMP180_calculation
  .text.DHT11_readByte
-                0x00000734       0x64 DHT11.o
-                0x00000734                DHT11_readByte
+                0x00000742       0x64 DHT11.o
+                0x00000742                DHT11_readByte
  .text.DHT11_getData
-                0x00000798       0x76 DHT11.o
-                0x00000798                DHT11_getData
+                0x000007a6       0x76 DHT11.o
+                0x000007a6                DHT11_getData
  .text.DS18B20_rst
-                0x0000080e       0x34 DS18B20.o
-                0x0000080e                DS18B20_rst
+                0x0000081c       0x34 DS18B20.o
+                0x0000081c                DS18B20_rst
  .text.DS18B20_write
-                0x00000842       0x50 DS18B20.o
-                0x00000842                DS18B20_write
+                0x00000850       0x50 DS18B20.o
+                0x00000850                DS18B20_write
  .text.DS18B20_read
-                0x00000892       0x48 DS18B20.o
-                0x00000892                DS18B20_read
+                0x000008a0       0x48 DS18B20.o
+                0x000008a0                DS18B20_read
  .text.DS18B20_start_meas
-                0x000008da       0x10 DS18B20.o
-                0x000008da                DS18B20_start_meas
+                0x000008e8       0x10 DS18B20.o
+                0x000008e8                DS18B20_start_meas
  .text.DS18B20_temperature
-                0x000008ea       0x7e DS18B20.o
-                0x000008ea                DS18B20_temperature
+                0x000008f8       0x7e DS18B20.o
+                0x000008f8                DS18B20_temperature
  .text.I2C_read
-                0x00000968      0x37c I2C.o
-                0x00000968                I2C_read
+                0x00000976      0x38e I2C.o
+                0x00000976                I2C_read
  .text.I2C_write
-                0x00000ce4      0x22c I2C.o
-                0x00000ce4                I2C_write
- .text.__vector_11
-                0x00000f10       0x42 NarodMon.o
-                0x00000f10                __vector_11
- .text.main     0x00000f52      0x78c NarodMon.o
-                0x00000f52                main
+                0x00000d04      0x23e I2C.o
+                0x00000d04                I2C_write
+ .text.main     0x00000f42      0x522 NarodMon.o
+                0x00000f42                main
  .text.UART_init
-                0x000016de       0x24 UART.o
-                0x000016de                UART_init
+                0x00001464       0x24 UART.o
+                0x00001464                UART_init
  .text.UART_send
-                0x00001702        0x8 UART.o
-                0x00001702                UART_send
+                0x00001488        0x8 UART.o
+                0x00001488                UART_send
  .text.UART_send_string
-                0x0000170a       0x1e UART.o
-                0x0000170a                UART_send_string
+                0x00001490       0x1e UART.o
+                0x00001490                UART_send_string
  .text.avr-libc.fplib
-                0x00001728        0xa c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(addsf3.o)
-                0x00001728                __subsf3
-                0x0000172a                __addsf3
+                0x000014ae        0xa c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(addsf3.o)
+                0x000014ae                __subsf3
+                0x000014b0                __addsf3
  .text.avr-libc.fplib
-                0x00001732       0xc0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(addsf3x.o)
-                0x0000174c                __addsf3x
+                0x000014b8       0xc0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(addsf3x.o)
+                0x000014d2                __addsf3x
  .text.avr-libc.fplib
-                0x000017f2        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(divsf3.o)
-                0x000017f2                __divsf3
+                0x00001578        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(divsf3.o)
+                0x00001578                __divsf3
  .text.avr-libc.fplib
-                0x000017f6       0xcc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(divsf3x.o)
-                0x0000180c                __divsf3x
-                0x00001810                __divsf3_pse
+                0x0000157c       0xcc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(divsf3x.o)
+                0x00001592                __divsf3x
+                0x00001596                __divsf3_pse
  .text.avr-libc.fplib
-                0x000018c2        0xa c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fixsfsi.o)
-                0x000018c2                __fixsfsi
+                0x00001648        0xa c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fixsfsi.o)
+                0x00001648                __fixsfsi
  .text.avr-libc.fplib
-                0x000018cc       0x58 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fixunssfsi.o)
-                0x000018cc                __fixunssfsi
+                0x00001652       0x58 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fixunssfsi.o)
+                0x00001652                __fixunssfsi
  .text.avr-libc.fplib
-                0x00001924       0x7a c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(floatsisf.o)
-                0x00001924                __floatunsisf
-                0x00001928                __floatsisf
+                0x000016aa       0x7a c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(floatsisf.o)
+                0x000016aa                __floatunsisf
+                0x000016ae                __floatsisf
  .text.avr-libc.fplib
-                0x0000199e        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_inf.o)
-                0x0000199e                __fp_inf
+                0x00001724        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_inf.o)
+                0x00001724                __fp_inf
  .text.avr-libc.fplib
-                0x000019aa        0x6 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_nan.o)
-                0x000019aa                __fp_nan
+                0x00001730        0x6 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_nan.o)
+                0x00001730                __fp_nan
  .text.avr-libc.fplib
-                0x000019b0        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_pscA.o)
-                0x000019b0                __fp_pscA
+                0x00001736        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_pscA.o)
+                0x00001736                __fp_pscA
  .text.avr-libc.fplib
-                0x000019be        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_pscB.o)
-                0x000019be                __fp_pscB
+                0x00001744        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_pscB.o)
+                0x00001744                __fp_pscB
  .text.avr-libc.fplib
-                0x000019cc       0x22 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_round.o)
-                0x000019cc                __fp_round
+                0x00001752       0x22 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_round.o)
+                0x00001752                __fp_round
  .text.avr-libc.fplib
-                0x000019ee       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_split3.o)
-                0x000019ee                __fp_split3
-                0x000019fe                __fp_splitA
+                0x00001774       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_split3.o)
+                0x00001774                __fp_split3
+                0x00001784                __fp_splitA
  .text.avr-libc.fplib
-                0x00001a32        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_zero.o)
-                0x00001a32                __fp_zero
-                0x00001a34                __fp_szero
+                0x000017b8        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(fp_zero.o)
+                0x000017b8                __fp_zero
+                0x000017ba                __fp_szero
  .text.avr-libc.fplib
-                0x00001a40        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(mulsf3.o)
-                0x00001a40                __mulsf3
+                0x000017c6        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(mulsf3.o)
+                0x000017c6                __mulsf3
  .text.avr-libc.fplib
-                0x00001a44       0xc2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(mulsf3x.o)
-                0x00001a58                __mulsf3x
-                0x00001a5c                __mulsf3_pse
+                0x000017ca       0xc2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4\libm.a(mulsf3x.o)
+                0x000017de                __mulsf3x
+                0x000017e2                __mulsf3_pse
  .text.libgcc.div
-                0x00001b06       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_udivmodsi4.o)
-                0x00001b06                __udivmodsi4
+                0x0000188c       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_udivmodsi4.o)
+                0x0000188c                __udivmodsi4
  .text.libgcc.div
-                0x00001b4a       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_divmodsi4.o)
-                0x00001b4a                __divmodsi4
+                0x000018d0       0x28 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_divmodsi4.o)
+                0x000018d0                __divmodsi4
  .text.libgcc.div
-                0x00001b72       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_negsi2.o)
-                0x00001b72                __negsi2
+                0x000018f8       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_negsi2.o)
+                0x000018f8                __negsi2
  .text.libgcc.mul
-                0x00001b82       0x18 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
-                0x00001b82                __umulhisi3
+                0x00001908       0x14 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_muluhisi3.o)
+                0x00001908                __muluhisi3
  .text.libgcc.mul
-                0x00001b9a       0x14 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_muluhisi3.o)
-                0x00001b9a                __muluhisi3
-                0x00001bae                . = ALIGN (0x2)
+                0x0000191c       0x18 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+                0x0000191c                __umulhisi3
+                0x00001934                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001bae        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
-                0x00001bae                _exit
-                0x00001bae                exit
+ .fini9         0x00001934        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
+                0x00001934                _exit
+                0x00001934                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -725,88 +723,87 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001bae        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
+ .fini0         0x00001934        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001bb2                _etext = .
+                0x00001938                _etext = .
 
-.data           0x00800060       0xbe load address 0x00001bb2
+.data           0x00800060       0xe4 load address 0x00001938
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- .data.DS_temp  0x00800060        0x2 NarodMon.o
-                0x00800060                DS_temp
  .data.BMP_press
-                0x00800062        0x4 NarodMon.o
-                0x00800062                BMP_press
- .data.BMP_temp
-                0x00800066        0x4 NarodMon.o
-                0x00800066                BMP_temp
- .data.DHT_hum  0x0080006a        0x1 NarodMon.o
-                0x0080006a                DHT_hum
- .data.DHT_temp
-                0x0080006b        0x1 NarodMon.o
-                0x0080006b                DHT_temp
+                0x00800060        0x4 NarodMon.o
+                0x00800060                BMP_press
+ .data.DHT_hum  0x00800064        0x1 NarodMon.o
+                0x00800064                DHT_hum
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x0080006c       0xb1 NarodMon.o
+                0x00800065       0xdf NarodMon.o
  *(.gnu.linkonce.d*)
-                0x0080011e                . = ALIGN (0x2)
- *fill*         0x0080011d        0x1 
-                0x0080011e                _edata = .
-                0x0080011e                PROVIDE (__data_end, .)
+                0x00800144                . = ALIGN (0x2)
+                0x00800144                _edata = .
+                0x00800144                PROVIDE (__data_end, .)
 
-.bss            0x0080011e       0xe7
-                0x0080011e                PROVIDE (__bss_start, .)
+.bss            0x00800144      0x100
+                0x00800144                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
+ .bss.uptime    0x00800144        0x2 NarodMon.o
+                0x00800144                uptime
+ .bss.DS_temp   0x00800146        0x2 NarodMon.o
+                0x00800146                DS_temp
+ .bss.BMP_temp  0x00800148        0x4 NarodMon.o
+                0x00800148                BMP_temp
+ .bss.DHT_temp  0x0080014c        0x1 NarodMon.o
+                0x0080014c                DHT_temp
  *(COMMON)
- COMMON         0x0080011e       0x65 BMP180.o
-                0x0080011e                p0
-                0x00800122                BMP180_MB
-                0x00800124                c6
-                0x00800128                BMP180_buffer
-                0x0080012b                p2
-                0x0080012f                y0
-                0x00800133                BMP180_MD
-                0x00800135                BMP180_AC2
-                0x00800137                UART_buff
-                0x00800147                BMP180_AC5
-                0x00800149                BMP180_UT
-                0x0080014d                BMP180_AC6
-                0x0080014f                y2
-                0x00800153                BMP180_B1
-                0x00800155                x2
-                0x00800159                x0
-                0x0080015d                p1
-                0x00800161                md
-                0x00800165                c5
-                0x00800169                mc
-                0x0080016d                BMP180_AC4
-                0x0080016f                BMP180_AC3
-                0x00800171                x1
-                0x00800175                BMP180_MC
-                0x00800177                BMP180_AC1
-                0x00800179                BMP180_UP
-                0x0080017d                BMP180_B2
-                0x0080017f                y1
- COMMON         0x00800183        0x2 I2C.o
-                0x00800183                I2C_counter2
-                0x00800184                I2C_counter1
- COMMON         0x00800185       0x80 NarodMon.o
-                0x00800185                UART_data
-                0x008001a5                temp
-                0x008001a7                buf
-                0x00800205                PROVIDE (__bss_end, .)
-                0x00001bb2                __data_load_start = LOADADDR (.data)
-                0x00001c70                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080014d       0x65 BMP180.o
+                0x0080014d                p0
+                0x00800151                BMP180_MB
+                0x00800153                c6
+                0x00800157                BMP180_buffer
+                0x0080015a                p2
+                0x0080015e                y0
+                0x00800162                BMP180_MD
+                0x00800164                BMP180_AC2
+                0x00800166                UART_buff
+                0x00800176                BMP180_AC5
+                0x00800178                BMP180_UT
+                0x0080017c                BMP180_AC6
+                0x0080017e                y2
+                0x00800182                BMP180_B1
+                0x00800184                x2
+                0x00800188                x0
+                0x0080018c                p1
+                0x00800190                md
+                0x00800194                c5
+                0x00800198                mc
+                0x0080019c                BMP180_AC4
+                0x0080019e                BMP180_AC3
+                0x008001a0                x1
+                0x008001a4                BMP180_MC
+                0x008001a6                BMP180_AC1
+                0x008001a8                BMP180_UP
+                0x008001ac                BMP180_B2
+                0x008001ae                y1
+ COMMON         0x008001b2        0x2 I2C.o
+                0x008001b2                I2C_counter2
+                0x008001b3                I2C_counter1
+ COMMON         0x008001b4       0x90 NarodMon.o
+                0x008001b4                UART_data
+                0x008001d4                temp
+                0x008001d8                buf
+                0x00800244                PROVIDE (__bss_end, .)
+                0x00001938                __data_load_start = LOADADDR (.data)
+                0x00001a1c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800205        0x0
-                0x00800205                PROVIDE (__noinit_start, .)
+.noinit         0x00800244        0x0
+                0x00800244                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800205                PROVIDE (__noinit_end, .)
-                0x00800205                _end = .
-                0x00800205                PROVIDE (__heap_start, .)
+                0x00800244                PROVIDE (__noinit_end, .)
+                0x00800244                _end = .
+                0x00800244                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -870,7 +867,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x120
+.debug_aranges  0x00000000      0x118
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 BMP180.o
@@ -881,72 +878,72 @@ END GROUP
  .debug_aranges
                 0x00000090       0x28 I2C.o
  .debug_aranges
-                0x000000b8       0x28 NarodMon.o
+                0x000000b8       0x20 NarodMon.o
  .debug_aranges
-                0x000000e0       0x40 UART.o
+                0x000000d8       0x40 UART.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2fd1
+.debug_info     0x00000000     0x2f83
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x765 BMP180.o
  .debug_info    0x00000765      0x2fb DHT11.o
  .debug_info    0x00000a60      0x461 DS18B20.o
  .debug_info    0x00000ec1     0x15f1 I2C.o
- .debug_info    0x000024b2      0x7af NarodMon.o
- .debug_info    0x00002c61      0x370 UART.o
+ .debug_info    0x000024b2      0x761 NarodMon.o
+ .debug_info    0x00002c13      0x370 UART.o
 
-.debug_abbrev   0x00000000      0x8b0
+.debug_abbrev   0x00000000      0x896
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x1af BMP180.o
  .debug_abbrev  0x000001af      0x121 DHT11.o
  .debug_abbrev  0x000002d0      0x180 DS18B20.o
  .debug_abbrev  0x00000450      0x180 I2C.o
- .debug_abbrev  0x000005d0      0x1e7 NarodMon.o
- .debug_abbrev  0x000007b7       0xf9 UART.o
+ .debug_abbrev  0x000005d0      0x1cd NarodMon.o
+ .debug_abbrev  0x0000079d       0xf9 UART.o
 
-.debug_line     0x00000000      0xe43
+.debug_line     0x00000000      0xe0f
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x1a0 BMP180.o
- .debug_line    0x000001a0      0x1af DHT11.o
- .debug_line    0x0000034f      0x1fa DS18B20.o
- .debug_line    0x00000549      0x56d I2C.o
- .debug_line    0x00000ab6      0x26c NarodMon.o
- .debug_line    0x00000d22      0x121 UART.o
+ .debug_line    0x00000000      0x1a8 BMP180.o
+ .debug_line    0x000001a8      0x1af DHT11.o
+ .debug_line    0x00000357      0x1fa DS18B20.o
+ .debug_line    0x00000551      0x573 I2C.o
+ .debug_line    0x00000ac4      0x22a NarodMon.o
+ .debug_line    0x00000cee      0x121 UART.o
 
-.debug_frame    0x00000000      0x2f8
+.debug_frame    0x00000000      0x2d4
  *(.debug_frame)
  .debug_frame   0x00000000       0xe4 BMP180.o
  .debug_frame   0x000000e4       0x54 DHT11.o
  .debug_frame   0x00000138       0x78 DS18B20.o
  .debug_frame   0x000001b0       0x34 I2C.o
- .debug_frame   0x000001e4       0x48 NarodMon.o
- .debug_frame   0x0000022c       0xcc UART.o
+ .debug_frame   0x000001e4       0x24 NarodMon.o
+ .debug_frame   0x00000208       0xcc UART.o
 
-.debug_str      0x00000000      0x4c9
+.debug_str      0x00000000      0x4bb
  *(.debug_str)
- .debug_str     0x00000000      0x264 BMP180.o
-                                0x2b4 (size before relaxing)
- .debug_str     0x00000264       0x86 DHT11.o
-                                0x214 (size before relaxing)
- .debug_str     0x000002ea       0x96 DS18B20.o
-                                0x221 (size before relaxing)
- .debug_str     0x00000380       0x77 I2C.o
-                                0x20a (size before relaxing)
- .debug_str     0x000003f7       0x96 NarodMon.o
-                                0x2b2 (size before relaxing)
- .debug_str     0x0000048d       0x3c UART.o
-                                0x19d (size before relaxing)
+ .debug_str     0x00000000      0x25b BMP180.o
+                                0x2ab (size before relaxing)
+ .debug_str     0x0000025b       0x86 DHT11.o
+                                0x20b (size before relaxing)
+ .debug_str     0x000002e1       0x96 DS18B20.o
+                                0x218 (size before relaxing)
+ .debug_str     0x00000377       0x77 I2C.o
+                                0x201 (size before relaxing)
+ .debug_str     0x000003ee       0x91 NarodMon.o
+                                0x2a4 (size before relaxing)
+ .debug_str     0x0000047f       0x3c UART.o
+                                0x194 (size before relaxing)
 
-.debug_loc      0x00000000     0x1e32
+.debug_loc      0x00000000     0x1da3
  *(.debug_loc)
  .debug_loc     0x00000000      0x3ec BMP180.o
  .debug_loc     0x000003ec      0x37e DHT11.o
  .debug_loc     0x0000076a      0x277 DS18B20.o
  .debug_loc     0x000009e1      0xeff I2C.o
- .debug_loc     0x000018e0      0x1f7 NarodMon.o
- .debug_loc     0x00001ad7      0x35b UART.o
+ .debug_loc     0x000018e0      0x168 NarodMon.o
+ .debug_loc     0x00001a48      0x35b UART.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -966,14 +963,14 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x120
+.debug_ranges   0x00000000      0x118
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x18 BMP180.o
  .debug_ranges  0x00000018       0x30 DHT11.o
  .debug_ranges  0x00000048       0x30 DS18B20.o
  .debug_ranges  0x00000078       0x60 I2C.o
- .debug_ranges  0x000000d8       0x18 NarodMon.o
- .debug_ranges  0x000000f0       0x30 UART.o
+ .debug_ranges  0x000000d8       0x10 NarodMon.o
+ .debug_ranges  0x000000e8       0x30 UART.o
 
 .debug_macro
  *(.debug_macro)

@@ -37,7 +37,7 @@ uint8_t BMP180_init(void) {
 	//Чтение ID чипа (проверка связи)
 	I2C_read(BMP180_ADDR, BMP180_DEVICE_ID, &BMP180_buffer, 1);
 	if(BMP180_buffer[0] != BMP180_ID) {
-		//return 0;
+		return 0;
 	}
 			
 	//Чтение калибровочных констант

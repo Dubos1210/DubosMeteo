@@ -11,9 +11,9 @@
 
 #include <stdint.h>
 
-#define DQ_in() DDRD &=~ (1<<5) //DQ - вход (высокий уровень на шине благодаря внешней подтяжке)
-#define DQ_out() DDRD |= (1<<5) //DQ - выход
-#define DQ_pin() PIND & (1<<5)  //Проверка состояния DQ
+#define DQ_in() DDRD &=~ (1<<6) //DQ - вход (высокий уровень на шине благодаря внешней подтяжке)
+#define DQ_out() DDRD |= (1<<6) //DQ - выход
+#define DQ_pin() PIND & (1<<6)  //Проверка состояния DQ
 
 #define SKIP_ROM         0xCC
 #define CONVERT          0x44

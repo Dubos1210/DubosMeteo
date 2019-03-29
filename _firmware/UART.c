@@ -21,7 +21,7 @@ void UART_init(uint32_t baud) {
 	UBRRH = (unsigned char) (ubrr>>8);
 	UBRRL = (unsigned char) ubrr;
 	/*Enable receiver and transmitter */
-	UCSRB = (1<<RXEN)|(1<<RXCIE)|(1<<TXEN);
+	UCSRB = (1<<TXEN);
 	/* Set frame format: 8data, 2stop bit */
 	UCSRC = (1<<URSEL)|(1<<USBS)|(3<<UCSZ0);
 }

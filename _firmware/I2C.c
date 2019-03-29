@@ -55,7 +55,7 @@ static void inline I2C_transmit(uint8_t msg) {
 	while(SDA_pin()) {
 		if(I2C_counter1 < 200) {
 			_delay_us(1);
-			//I2C_counter1++;
+			I2C_counter1++;
 		}
 		else {
 			return;

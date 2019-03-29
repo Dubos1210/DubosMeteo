@@ -9,7 +9,7 @@
 #ifndef DHT11_H_
 #define DHT11_H_
 
-#define DHT_WIRE		6
+#define DHT_WIRE		5
 #define DHT_DDR			DDRD
 #define DHT_PORT		PORTD
 #define DHT_PIN			PIND
