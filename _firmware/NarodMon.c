@@ -19,8 +19,9 @@
 int8_t DHT_temp = 0;
 uint8_t DHT_hum = 10;
 int32_t BMP_temp = 0;
-int32_t BMP_press = 5800;
+int32_t BMP_press = 7600;
 int16_t DS_temp = 0;
+
 uint8_t UART_counter = 0;
 uint8_t UART_data[32];
 char buf[108];
@@ -29,18 +30,13 @@ uint32_t temp;
 
 uint16_t uptime = 0;
 
-void static inline LED_in() {
-	OCR1B = 0x3FF;
-}
 void static inline LED_fadein() {
 	while(OCR1B < 0x3FF) {		
 		OCR1B++;
 		_delay_ms(2);
 	}
 }
-void static inline LED_off() {
-	OCR1B = 0;
-}
+
 void static inline LED_fadeout() {
 	while(OCR1B > 0) {
 		OCR1B--;
@@ -70,6 +66,9 @@ int main(void)
 	//strcpy(buf, "#cc:50:e3:2b:55:fc\n#DS18B20#000.00\n#DHT11_T#000\n#DHT11_H#00\n##");
 	
 	BMP180_init();
+	BMP180_calculation(&BMP_temp, &BMP_press);
+	BMP_press *= 100;
+	BMP_press /= 1333;
 	
 	// Initialize Dallas DS18B20
 	if(DS18B20_rst() > 0) {
@@ -84,16 +83,23 @@ int main(void)
 	
     while(1)
     {
-	    LED_fadein();
+	    LED_fadein();		
 		
 		DS18B20_start_meas();
 		_delay_ms(1000);
 		DS_temp = DS18B20_temperature();
 		
 		DHT11_getData(&DHT_temp, &DHT_hum);
-				
-		BMP180_calculation(&BMP_temp, &BMP_press);
 		
+		BMP_press *= 1333;
+		BMP_press /= 10;
+		
+		for(int i = 0; i < 90; i++) {
+			BMP180_calculation(&BMP_temp, &temp);
+			BMP_press += temp;
+		}
+		
+		BMP_press /= 100;
 		BMP_press *= 100;
 		BMP_press /= 1333;
 		
