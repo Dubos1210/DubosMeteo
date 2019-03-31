@@ -19,12 +19,13 @@
 int8_t DHT_temp = 0;
 uint8_t DHT_hum = 10;
 int32_t BMP_temp = 0;
-int32_t BMP_press = 7600;
+int32_t BMP_press = 101308;
+int32_t BMP_press_arr[9];
 int16_t DS_temp = 0;
 
 uint8_t UART_counter = 0;
 uint8_t UART_data[32];
-char buf[108];
+char buf[109];
 
 uint32_t temp;
 
@@ -41,6 +42,20 @@ void static inline LED_fadeout() {
 	while(OCR1B > 0) {
 		OCR1B--;
 		_delay_ms(2);
+	}
+}
+
+void bubbleSort(int32_t *a, int size) {
+	int i, j;
+	int32_t tmp;
+	for (i = 1; i < size; i++) {
+		for (j = 1; j < size; j++) {
+			if (a[j] > a[j-1]) {
+				tmp = a[j];
+				a[j] = a[j-1];
+				a[j-1] = tmp;
+			}
+		}
 	}
 }
 
@@ -62,13 +77,10 @@ int main(void)
 	UART_send_string("AT+RST\r\n");
 	_delay_ms(5000);
 	
-	strcpy(buf, "#cc:50:e3:2b:55:fc\n#uptime#0000\n#DS18B20#000.00\n#DHT11_T#000\n#DHT11_H#00\n#BMP180_T#000.0\n#BMP180_P#000.0\n##");
-	//strcpy(buf, "#cc:50:e3:2b:55:fc\n#DS18B20#000.00\n#DHT11_T#000\n#DHT11_H#00\n##");
+	strcpy(buf, "#cc:50:e3:2b:55:fc\n#uptime#0000\n#DS18B20#000.00\n#DHT11_T#000\n#DHT11_H#00\n#BMP180_T#000.0\n#BMP180_P#0000.00\n##");
 	
 	BMP180_init();
 	BMP180_calculation(&BMP_temp, &BMP_press);
-	BMP_press *= 100;
-	BMP_press /= 1333;
 	
 	// Initialize Dallas DS18B20
 	if(DS18B20_rst() > 0) {
@@ -89,19 +101,16 @@ int main(void)
 		_delay_ms(1000);
 		DS_temp = DS18B20_temperature();
 		
-		DHT11_getData(&DHT_temp, &DHT_hum);
-		
-		BMP_press *= 1333;
-		BMP_press /= 10;
-		
-		for(int i = 0; i < 90; i++) {
+		for(int i = 0; i < 9; i++) {
 			BMP180_calculation(&BMP_temp, &temp);
-			BMP_press += temp;
+			BMP_press_arr[i] = temp;
+			_delay_ms(500);
 		}
 		
-		BMP_press /= 100;
-		BMP_press *= 100;
-		BMP_press /= 1333;
+		bubbleSort(&BMP_press_arr, 9);
+		BMP_press = BMP_press_arr[4];
+		
+		DHT11_getData(&DHT_temp, &DHT_hum);
 		
 		temp = uptime;
 		buf[30] = temp % 10 + 0x30;
@@ -172,7 +181,11 @@ int main(void)
 		}
 		
 		temp = BMP_press;
-		buf[103] = temp % 10 + 0x30;
+		buf[105] = temp % 10 + 0x30;
+		temp /= 10;
+		buf[104] = temp % 10 + 0x30;
+		temp /= 10;
+		buf[102] = temp % 10 + 0x30;
 		temp /= 10;
 		buf[101] = temp % 10 + 0x30;
 		temp /= 10;
@@ -186,8 +199,7 @@ int main(void)
 		_delay_ms(100);
 	    UART_send_string("AT+CIPSTART=\"TCP\",\"narodmon.ru\",8283\r\n");
 	    _delay_ms(100);
-	    UART_send_string("AT+CIPSEND=107\r\n");
-	    //UART_send_string("AT+CIPSEND=62\r\n");
+	    UART_send_string("AT+CIPSEND=109\r\n");
 	    _delay_ms(100);
 	    UART_send_string(buf);
 		uptime++;

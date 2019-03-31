@@ -24,7 +24,7 @@
 #define	BMP180_COMMAND_PRESSURE3 0xF4
 
 uint8_t BMP180_init(void);
-void BMP180_calculation (int32_t* temperature, int32_t* pressure);
+void BMP180_calculation(int32_t* temperature, int32_t* pressure);
 
 
 #endif /* BMP180_H_ */
